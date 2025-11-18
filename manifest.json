@@ -1,0 +1,10 @@
+// Cola isso no console do navegador para testar a conexão
+const supabase = supabase.createClient(
+  "https://xbsiotserthsynwjsnih.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhic2lvdHNlcnRoc3lud2pzbmloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzNDM5NDEsImV4cCI6MjA3ODkxOTk0MX0.ZzmSRDUEBGLfu71oVQlYo7WTKvWIZ3iZLnrUo27f--U"
+);
+
+// Testa selecionar
+const { data, error } = await supabase.from('ordem_mysterium.chat_om').select('*');
+console.log("Dados:", data);
+console.log("Erro:", error);
