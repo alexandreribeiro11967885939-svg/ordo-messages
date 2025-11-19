@@ -97,8 +97,8 @@
   //  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
    // Configuração do Supabase - SUBSTITUA COM SUAS CREDENCIAIS
-        const SUPABASE_URL = "https://bceykkqbdsdrclmeybxx.supabase.co    ";
-        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJjZXlra3FiZHNkcmNsbWV5Ynh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI3ODYxODEsImV4cCI6MjA3ODM2MjE4MX0.mZ5j9DRHANmX2w2avkMGydbj4a8GibSaozsegm24dR8    ";
+        const SUPABASE_URL = "https://xbsiotserthsynwjsnih.supabase.co ";
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhic2lvdHNlcnRoc3lud2pzbmloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzNDM5NDEsImV4cCI6MjA3ODkxOTk0MX0.ZzmSRDUEBGLfu71oVQlYo7WTKvWIZ3iZLnrUo27f--U ";
         const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
   
@@ -136,13 +136,13 @@
       const text = messageInput.value.trim();
       if (!text) return;
 
-      const { error } = await supabase.from('messages').insert([{ username, message: text }]);
+      const { error } = await supabase.from('chat_om').insert([{ username, message: text }]);
       if (error) console.error(error);
       messageInput.value = '';
     });
 
     supabase.channel('public:messages')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'messages' }, payload => {
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'chat_om' }, payload => {
         loadMessages();
       })
       .subscribe();
